@@ -57,3 +57,15 @@ a:hover {
 	@include body-font-bold;
 	transition: color 350ms linear;
 }
+
+h1, h2, h3 {
+	@include headline-font;	
+	line-height: 1;
+}
+
+article h1 {
+	color: $color-title;
+	@include fontSize(66px);
+	margin: 48px 0 48px 0;
+	text-transform: capitalize;
+}
