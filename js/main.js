@@ -13,3 +13,8 @@ $(function() {
     }
   });
 });
+
+// bigtext.js
+if( 'querySelectorAll' in document ) {
+    $('#bigtext').bigtext();    
+}

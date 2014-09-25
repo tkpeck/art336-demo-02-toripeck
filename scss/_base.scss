@@ -3,6 +3,14 @@ Base Rules
 	A Base rule is applied to an element using an element selector, a descendent selector, or a child selector, along with any pseudoclasses. It doesn’t include any class or ID selectors. It is defining the default styling for how that element should look in all occurrences on the page.
 */
 
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
 body {
 	background-color: $background-color;
 	@include body-font-regular;
@@ -13,12 +21,26 @@ body {
 	width: 100%;
 }
 
+main, footer[role="contentinfo"] {
+	padding: 0 10px;
+}
+
 img {
 	height: auto;
 	max-width: 100%;
-	margin: 0;
+//	margin: 0;
 }
 
+figure {
+	margin: 0;
+	padding: 0;
+}
+
+figcaption {
+	@include fontSize(14px);
+}
+
+// nav style
 nav {
 	background-color: $background-color;
 	border: 1px solid $border-color;
@@ -57,10 +79,16 @@ a:hover {
 	@include body-font-bold;
 	transition: color 350ms linear;
 }
+// end nav style
 
 h1, h2, h3 {
 	@include headline-font;	
 	line-height: 1;
+}
+
+header h1 {
+	@include fontSize(175px);
+	margin-top: 0px;
 }
 
 article h1 {
@@ -68,4 +96,30 @@ article h1 {
 	@include fontSize(66px);
 	margin: 48px 0 48px 0;
 	text-transform: capitalize;
+}
+
+article div {
+	color: $color-title;
+	@include fontSize(50px);
+	@include body-font-bold;
+	margin: 30px 0;
+}
+
+footer[role="complementary"] {
+	border-bottom: 1px $color-footer solid;
+	border-top: 1px $color-footer solid;
+	color: $color-footer;
+	margin: 40px 0;
+	padding: 10px 0;
+}
+
+footer[role="complementary"] p {
+	margin: 0;
+}
+
+footer[role="contentinfo"] small {
+	border-top: 1px $color-footer solid;
+	display: block;
+	@include fontSize(16px);
+	margin-bottom: 20px;
 }
